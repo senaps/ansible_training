@@ -1,0 +1,15 @@
+---
+- hosts: web
+  tasks:
+  - name: Installing packages centos
+    yum:
+      name: ['vim', 'git', 'tmux'] 
+      state: present
+    when: ansible_distribution == "CentOS"
+  
+  - name: Installing packages ubuntu
+    apt:
+      name: ['vim', 'git', 'tmux']
+      state: present
+    when: ansible_distribution == 'Ubuntu'
+
