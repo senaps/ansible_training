@@ -1,0 +1,6 @@
+---
+- name: install mysql database
+  import_tasks: centos.yml
+  when: ansible_facts['os_family']|lower == 'centos'
+- import_tasks: ubuntu.yml
+  when: ansible_facts['os_family']|lower == 'ubuntu'

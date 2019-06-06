@@ -1,0 +1,4 @@
+---
+- yum:
+    name: mariadb-server
+    state: present
