@@ -4,9 +4,9 @@ test will be run with help of `ubuntu` as the host for running the ansible comma
 and will use some machines being ran on `virtualbox` hypervisor.
 
 ## machines
-    
+
+|os|application|ip|username|password|    
 |---|---|---|---|---|
-|os|application|ip|username|password|
 |ubuntu|host for vm and ansible|192.168.56.1|senaps||
 |centos|websrver|192.168.56.100|root|123|
 
