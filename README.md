@@ -9,7 +9,9 @@ and will use some machines being ran on `virtualbox` hypervisor.
 |---|---|---|---|---|
 |ubuntu|host for vm and ansible|192.168.56.1|senaps||
 |centos|websrver|192.168.56.100|root|123|
+|centos|dbserver|192.168.56.102|root|123|
 |ubuntu|websrver|192.168.56.101|senaps|123|
+|ubuntu|dbserver|192.168.56.103|senaps|123|
 
 we have defined the machine in the `resources.yml` file, which looks like:
 
