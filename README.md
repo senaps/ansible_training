@@ -30,3 +30,19 @@ this is a variable and should be the name of the group we want to do the action 
 `-u root` since the username for our `ubuntu` host is `senaps`, commands would be ran
 using `senaps`, but the username for `centos` machine is `root`. using `-u` we are
 telling ansible what username it should be using
+
+the output of the above command would looklike:
+
+    192.168.56.100 | SUCCESS => {
+        "ansible_facts": {
+            "discovered_interpreter_python": "/usr/bin/python"
+        },
+        "changed": false,
+        "ping": "pong"
+    }   
+
+with above, `"pong"` is the result of `ping` module being ran. we received `pong` which
+means that we could've connect to `centos` machine using ansible.
+other keys in the `json` like result later on.
+
+    
