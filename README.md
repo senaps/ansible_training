@@ -38,3 +38,7 @@ the `ping` for ubuntu machine will fail since it doesn't have `root` as it's use
 we have moved the username to the `resource` file specifing it with `ansible_username` and
 then have removed the `-u` directive from the cli.
 as the result, ansible will successfully ping both machines with their own username.
+
+we will run ansible with following command now:
+
+    ansible -i resources web -m ping
