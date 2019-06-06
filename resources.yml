@@ -1,0 +1,23 @@
+---
+all:
+  hosts:
+      app_centos:
+        ansible_host: 192.168.56.100
+        ansible_user: root
+      db_centos:
+        ansible_host: 192.168.56.102
+        ansible_user: root
+      app_ubuntu:
+        ansible_host: 192.168.56.101
+        ansible_user: senaps
+      db_ubuntu:
+        ansible_host: 192.168.56.103
+        ansible_user: senaps
+app:
+  hosts:
+    app_centos:
+    app_ubuntu:
+db:
+  hosts:
+    db_centos:
+    db_ubuntu:
