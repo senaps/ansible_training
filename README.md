@@ -9,15 +9,17 @@ and will use some machines being ran on `virtualbox` hypervisor.
 |---|---|---|---|---|
 |ubuntu|host for vm and ansible|192.168.56.1|senaps||
 |centos|websrver|192.168.56.100|root|123|
+|ubuntu|websrver|192.168.56.101|senaps|123|
 
 we have defined the machine in the `resources` file, which looks like:
 
     [web]
-    192.168.56.100
+    192.168.56.100 ansible_user=root
+    192.168.56.101 ansible_user=senaps
     
 we use the test `ping` module here
 
-    ansible -i resources web -m ping -u root
+    ansible -i resources web -m ping
     
 `-i` is specifing a custom file named `resources` as where the inventory is. inventory
 is a place where we place our ip's and servers to manage remotly.
@@ -27,22 +29,12 @@ this is a variable and should be the name of the group we want to do the action 
 
 `-m ping` is telling the ansible to execute the ping module. more on than later!
 
-`-u root` since the username for our `ubuntu` host is `senaps`, commands would be ran
-using `senaps`, but the username for `centos` machine is `root`. using `-u` we are
-telling ansible what username it should be using
+we are now using variables. in current example, we have a `centos` with `root` and an `ubuntu`
+machine with `senaps` userame. the point is, when we use
 
-the output of the above command would looklike:
-
-    192.168.56.100 | SUCCESS => {
-        "ansible_facts": {
-            "discovered_interpreter_python": "/usr/bin/python"
-        },
-        "changed": false,
-        "ping": "pong"
-    }   
-
-with above, `"pong"` is the result of `ping` module being ran. we received `pong` which
-means that we could've connect to `centos` machine using ansible.
-other keys in the `json` like result later on.
-
+    ansible -i resources web -m ping -u root
     
+the `ping` for ubuntu machine will fail since it doesn't have `root` as it's username
+we have moved the username to the `resource` file specifing it with `ansible_username` and
+then have removed the `-u` directive from the cli.
+as the result, ansible will successfully ping both machines with their own username.

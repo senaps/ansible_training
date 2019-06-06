@@ -1,2 +1,3 @@
 [web]
-192.168.56.100
+192.168.56.100 ansible_user=root
+192.168.56.101 ansible_user=senaps
